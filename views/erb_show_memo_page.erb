@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <link rel="stylesheet" href="/style.css" />
+        <meta http-equiv="content-type" content="text/html" charset="utf-8">
+        <title>詳細 | メモアプリ</title>
+    </head>
+    <body>
+      <div class = "container">
+        <%= md %>
+        <a href="http://localhost:4567/memos">戻る</a>
+        <p></p>
+
+        <div>
+            <ul>
+            <% File.open("memo.json", 'r')  do |file|%>
+              <% file = file.read %>
+              <% memo_array = JSON.load(file) %>
+              <% cur_url = request.path.delete_prefix("/memos/") %>
+              <% memo_hash = memo_array.find { |hash| hash["id"] == cur_url } %>
+              <h2 class="title"><%= "#{h memo_hash["title"]}" %></h2>
+              <br>
+              <p><%= "#{h memo_hash["description"]}" %></p>
+              
+              <div style="display:inline-flex">
+                <form action="http://localhost:4567/memos/<%= "#{h memo_hash["id"]}/edit" %>" method="get"> 
+                  <input type="submit" value="変更" class="form-modify">
+                </form>
+                <form action="http://localhost:4567/memos/<%= "#{h memo_hash["id"]}" %>" method="post">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <input type="submit" value="削除" class="form-delete">
+                </form>
+              </div>
+            <% end %>
+            <ul>
+        </div>
+      </div>
+    </body>
+</html>

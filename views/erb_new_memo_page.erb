@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <link rel="stylesheet" href="/style.css" />
+        <meta http-equiv="content-type" content="text/html" charset="utf-8">
+        <title>新規作成 | メモアプリ</title>
+    </head>
+    <body>
+    <div class = "container">
+      <% top_page = "http://localhost:4567/memos" %>
+        <%= md %>
+        <form action="http://localhost:4567/memos" method="post" class="form-example">
+          <div class="form-example-title">
+            <label for="title">タイトル: </label>
+            <input type="text" name="title" id="title" required class="form-title">
+          </div>
+          <p></p>
+          
+          <textarea name="description" rows="5" cols="40"></textarea>
+         
+          <p></p>
+            <input type="submit" value="追加" class= "form-example-submit">
+        </form>
+        <br>
+        <a href="<%= top_page %>">戻る</a>
+      </div>
+    </body>
+</html>

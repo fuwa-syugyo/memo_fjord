@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <link rel="stylesheet" href="/style.css" />
+        <meta http-equiv="content-type" content="text/html" charset="utf-8">
+        <title>トップページ | メモアプリ</title>
+    </head>
+    <body>
+      <div class = "container">
+        <%= md %>
+        <div class="button_01">
+          <a href="http://localhost:4567/memos/new" class="button_new">新規作成</a>
+        </div>
+
+        <div class="memo-list"> 
+            <ul>
+            <% File.open("memo.json", 'r')  do |file|%>
+              <% file = file.read %>
+              <% hash = JSON.load(file) %>
+              <% if hash != nil %>
+                <% hash.each do |file|%>
+                  <% memo_url = "http://localhost:4567/memos/#{file["id"]}" %>
+                  <li><a href=<%=  memo_url %>><%= "#{h file["title"]}" %></a></li>
+                <% end %>
+              <% end %>
+            <% end %>
+            </ul>
+        </div>
+      </div>
+    </body>
+</html>
+
+

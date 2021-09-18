@@ -1,0 +1,253 @@
+/*
+////////////////////////////////////////
+reset.css を読み込んで全てのスタイルをなくす
+////////////////////////////////////////
+*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*
+////////////////////////////////////////
+reset.css では足りない初期化を追加
+////////////////////////////////////////
+*/
+
+/* 全てに box-sizing: border-box; を適用 */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* 画像に関する初期設定 */
+img {
+  /* 大きい画像がはみ出さないように */
+  max-width: 100%;
+  /* 画像周りの無駄なスペースができないように */
+  vertical-align: bottom;
+}
+
+[data-whatinput="mouse"] *:focus,
+[data-whatinput="touch"] *:focus {
+  outline: none;
+}
+
+/*
+////////////////////////////////////////
+初期設定
+////////////////////////////////////////
+*/
+
+body {
+  padding: 32px 0;
+  color: #56564f;
+}
+
+article {
+  width: 640px;
+  margin: 0 auto;
+}
+
+/*
+////////////////////////////////////////
+以下に自分なりのCSSを書いて読みやすくする
+////////////////////////////////////////
+*/
+
+.container{
+  background-color: rgba(247, 239, 221, 0.644);
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  text-align: center;
+  line-height: 1.4;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+h2 {
+  line-height: 1.4;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+h3 {
+  text-align: right;
+  line-height: 1.4;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+p {
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+
+ul {
+  list-style-type: square;
+  padding-left: 40px;
+  margin-bottom: 20px;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+ol {
+  list-style-type: decimal;
+  padding-left: 40px;
+  margin-bottom: 20px;
+}
+
+ol li {
+  margin-bottom: 10px;
+}
+
+textarea {
+  padding: 10px;
+  margin-left: 10px;
+  border-radius: 3px;
+  resize: none;
+  transition: border 0.2s ease-out;
+  background-color: rgb(255, 255, 255);
+}
+
+.memo-list {
+  display: block;
+  padding:5px 100px;
+}
+
+.button_new  {
+  display: block;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 1em 2em;
+  width: 200px;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  font-weight: 700;
+  background-color: #1f77eb;
+  text-align: center;
+  border-radius: 50vh;
+  margin: auto;  
+}
+
+.button_new :hover {
+  text-decoration: none;
+  background-color: #36333c;
+}
+
+.form-example-submit {
+  display: inline-block;
+  border-radius: 16%;
+  font-size: 12pt;
+  text-align: center;
+  cursor: pointer;
+  padding: 8px 8px;
+  background: #ffff4d;
+  color: #000066;
+  line-height: 1em;
+  transition: .3s;
+  box-shadow: 1px 1px 3px #666666;
+  border: 2px solid #ffff4d;
+  margin-left: 6px;
+}
+.form-example-submit:hover {
+  box-shadow: none;
+  color: #ffff4d;
+  background: #000066;
+}
+
+/*.inline-flex {
+  padding: 10px 0;
+  border-radius: 16%;
+  line-height: 1em;
+  transition: .3s;
+  box-shadow: 1px 1px 3px #666666;
+  float: left;
+}*/
+
+.form-modify, .form-delete, .form-change{
+  display: inline-block;
+  border-radius: 16%;
+  font-size: 12pt;
+  text-align: center;
+  cursor: pointer;
+  padding: 8px 8px;
+  line-height: 1em;
+  transition: .3s;
+  box-shadow: 1px 1px 3px #4399fa6e;
+  margin-left: 6px;
+}
+
+.form-modify {
+  background: #4362f0e3;
+  color: #ffffff;
+}
+
+.form-delete {
+  background: #d11212;
+  color: #ffffff;
+}
+
+.form-title {
+  margin-bottom:10px ;
+}
+
+.form-change {
+  background: #027811aa;
+  color: #ffffff;
+  margin-top: 10px;
+}
